@@ -1,0 +1,13 @@
+[Unit]
+Description=uWSGI instance to serve Hukamnama-Screen
+After=network.target
+
+[Service]
+User=hukamnama
+Group=www-data
+WorkingDirectory=/home/hukamnama/hukamnama-screen
+Environment="PATH=/home/hukamnama/hukamnama-screen/.venv/bin"
+ExecStart=/home/hukamnama/hukamnama-screen/.venv/bin/uwsgi --ini hukamnama-screen.ini
+
+[Install]
+WantedBy=multi-user.target

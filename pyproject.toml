@@ -9,4 +9,6 @@ dependencies = [
     "flask-login>=0.6.3",
     "flask-sqlalchemy>=3.1.1",
     "requests>=2.32.5",
+    "uwsgi>=2.0.31",
+    "wheel>=0.45.1",
 ]
