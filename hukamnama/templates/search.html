@@ -1,0 +1,26 @@
+<!-- templates/index.html -->
+
+{% extends "base.html" %}
+
+{% block content %}
+{% if not data %}
+<form method="POST" action="/search">
+    <div class="field">
+        <div class="control">
+            <input name="q" id="search" type="search" autocapitalize="none" autocomplete="off" autocorrect="off" spellcheck="false" required="" class="input is-large gurbani-font" placeholder="jmT" title="Enter 2 characters minimum." pattern=".{2,}" value="">
+        </div>
+    </div>
+    <button class="button is-block is-info is-large is-fullwidth" type="submit">Search</button>
+</form>
+{% else %}
+<ol>
+    {%- for verse in data["verses"] -%}
+    <li>
+        <a href="{{ url_for('main.shabad', shabad_id=verse['shabadId']) }}">
+            {{ verse["verse"]["unicode"] }}
+        </a>
+    </li>
+    {%- endfor -%}
+</ol>
+{% endif %}
+{% endblock %}

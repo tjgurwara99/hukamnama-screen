@@ -1,0 +1,27 @@
+<!-- templates/index.html -->
+
+{% extends "base.html" %}
+
+{% block content %}
+{%- for verse in data["verses"] -%}
+<p class="title has-text-primary">
+    {{ verse["verse"]["unicode"] }}
+</p>
+{% if verse["translation"]["pu"]["bdb"]["unicode"] %}
+<p class="subtitle has-text-primary m-2">
+    {{ verse["translation"]["pu"]["bdb"]["unicode"] }}
+</p>
+<p class="subtitle has-text-primary m-2">
+    {{ verse["translation"]["en"]["bdb"] }}
+</p>
+{% endif %}
+{%- endfor -%}
+
+{% if current_user.is_authenticated %}
+<form method="POST">
+    <button class="button is-block is-info is-large is-fullwidth" type="submit">
+        Save as Current Hukamnama
+    </button>
+</form>
+{% endif %}
+{% endblock %}

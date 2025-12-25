@@ -1,0 +1,27 @@
+<!-- templates/index.html -->
+
+{% extends "base.html" %}
+
+{% block content %}
+{%- for verse in data["verses"] -%}
+<div class="fixed-grid has-3-cols">
+  <div class="grid">
+    <div class="cell">
+      <div class="cell subtitle is-4 has-text-primary">
+        {{ verse["verse"]["unicode"] }}
+      </div>
+    </div>
+    <div class="cell subtitle is-4 has-text-primary">
+      {% if verse["translation"]["pu"]["bdb"]["unicode"] %}
+        {{ verse["translation"]["pu"]["bdb"]["unicode"] }}
+      {% endif %}
+    </div>
+    <div class="cell subtitle is-4 has-text-primary">
+      {% if verse["translation"]["en"]["bdb"] %}
+        {{ verse["translation"]["en"]["bdb"] }}
+      {% endif %}
+    </div>
+  </div>
+</div>
+{%- endfor -%}
+{% endblock %}

@@ -1,0 +1,71 @@
+<!-- templates/base.html -->
+
+<!DOCTYPE html>
+<html data-theme="dark">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Flask Auth Example</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.4/css/bulma.min.css" />
+    <style>
+        :root {
+            --bulma-primary-h: 38deg;
+            --bulma-primary-l: 59%;
+            --bulma-link-h: 38deg;
+            --bulma-link-l: 59%;
+            --bulma-info-h: 38deg;
+            --bulma-info-l: 59%;
+            --bulma-success-h: 38deg;
+            --bulma-success-s: 100%;
+            --bulma-success-l: 59%;
+            --bulma-warning-h: 38deg;
+            --bulma-warning-l: 59%;
+            --bulma-danger-h: 38deg;
+            --bulma-danger-l: 59%;
+        }
+
+        [data-theme=dark],
+        .theme-dark {
+            --bulma-primary-h: 38deg;
+            --bulma-primary-l: 59%;
+            --bulma-link-h: 38deg;
+            --bulma-link-l: 59%;
+            --bulma-info-h: 38deg;
+            --bulma-info-l: 59%;
+            --bulma-success-h: 38deg;
+            --bulma-success-s: 100%;
+            --bulma-success-l: 59%;
+            --bulma-warning-h: 38deg;
+            --bulma-warning-l: 59%;
+            --bulma-danger-h: 38deg;
+            --bulma-danger-l: 59%;
+        }
+
+        @font-face {
+            font-display: block;
+            font-family: "anmol_lipi";
+            src: url("/static/fonts/AnmolLipiSG.ttf") format("truetype");
+        }
+
+        #search.gurbani-font {
+            font-family: anmol_lipi !important;
+        }
+    </style>
+
+</head>
+
+<body>
+    <section class="hero is-fullheight has-text-primary">
+
+        <div class="hero-body">
+            <div class="container has-text-centered is-fluid">
+                {% block content %}
+                {% endblock %}
+            </div>
+        </div>
+    </section>
+</body>
+
+</html>
