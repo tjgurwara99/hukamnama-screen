@@ -52,8 +52,8 @@ def shabad(shabad_id):
 def shabad_post(shabad_id):
     todays_hukamnama = CurrentHukamnama.query.filter_by(date=datetime.today().date())
     if todays_hukamnama:
-        # warn user that today's hukamnama is already set
-        pass
+        CurrentHukamnama.query.filter_by(date=datetime.today().date()).delete()
+        db.session.commit()
     hukamnama = CurrentHukamnama()
     hukamnama.shabad_id = shabad_id
     db.session.add(hukamnama)
