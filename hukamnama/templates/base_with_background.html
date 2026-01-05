@@ -1,0 +1,134 @@
+<!-- templates/base.html -->
+
+<!DOCTYPE html>
+<html data-theme="dark">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Today's Hukamnama</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.4/css/bulma.min.css" />
+    <style>
+        :root {
+            --bulma-primary-h: 38deg;
+            --bulma-primary-l: 59%;
+            --bulma-link-h: 38deg;
+            --bulma-link-l: 59%;
+            --bulma-info-h: 38deg;
+            --bulma-info-l: 59%;
+            --bulma-success-h: 38deg;
+            --bulma-success-s: 100%;
+            --bulma-success-l: 59%;
+            --bulma-warning-h: 38deg;
+            --bulma-warning-l: 59%;
+            --bulma-danger-h: 38deg;
+            --bulma-danger-l: 59%;
+        }
+
+        [data-theme=dark],
+        .theme-dark {
+            --bulma-primary-h: 38deg;
+            --bulma-primary-l: 59%;
+            --bulma-link-h: 38deg;
+            --bulma-link-l: 59%;
+            --bulma-info-h: 38deg;
+            --bulma-info-l: 59%;
+            --bulma-success-h: 38deg;
+            --bulma-success-s: 100%;
+            --bulma-success-l: 59%;
+            --bulma-warning-h: 38deg;
+            --bulma-warning-l: 59%;
+            --bulma-danger-h: 38deg;
+            --bulma-danger-l: 59%;
+        }
+
+        @font-face {
+            font-display: block;
+            font-family: "anmol_lipi";
+            src: url("/static/fonts/AnmolLipiSG.ttf") format("truetype");
+        }
+
+        #search.gurbani-font {
+            font-family: anmol_lipi !important;
+        }
+
+        /* Full page background with three sections */
+        .scripture-container {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            height: 100vh;
+            width: 100vw;
+        }
+
+        .scripture-section {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 33.33%;
+            height: 100%;
+            padding-bottom: 3rem;
+            padding:2rem;
+        }
+
+        .scripture-text {
+            max-width: 1200px;
+            width: 100%;
+            height: 100%;
+            padding: 1.5rem;
+            padding-bottom: 3rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .background-image {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('/static/background.png');
+            background-size: cover;
+            background-position: center;
+            /* opacity: 0.2; */
+            z-index: -1;
+        }
+
+        
+        {% block extra_styles %}
+        {% endblock %}
+    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/textfit/2.4.0/textFit.min.js" integrity="sha512-vLs5rAqfvmv/IpN7JustROkGAvjK/L+vgVDFe7KpdtLztqF8mZDfleK2MZj/xuOrWjma0pW+lPCMcBbPKJVC7g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+</head>
+
+<body class="background-image py-6">
+    <section class="is-fullheight has-text-primary">
+            <div class="has-text-centered is-fluid">
+                {% block content %}
+                {% endblock %}
+            </div>
+    </section>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Apply textFit to all scripture text elements
+            var elements = document.querySelectorAll('.scripture-text');
+            elements.forEach(function(element) {
+                textFit(element, {
+                    alignVert: true,
+                    alignHoriz: true,
+                    multiLine: true,
+                    reProcess: true,
+                    widthOnly: false,
+                    maxFontSize: 100,
+                    minFontSize: 16
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>

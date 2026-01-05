@@ -7,7 +7,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Flask Auth Example</title>
+    <title>Today's Hukamnama</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.4/css/bulma.min.css" />
     <style>
         :root {
@@ -51,6 +51,40 @@
 
         #search.gurbani-font {
             font-family: anmol_lipi !important;
+        }
+
+        /* Full page background with three sections */
+        .scripture-container {
+            /* min-height: 100vh; */
+            display: flex;
+            flex-direction: row;
+        }
+
+        .scripture-section {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+            min-width: 33.33%;
+        }
+/* 
+        .scripture-section:nth-child(1) {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+        }
+
+        .scripture-section:nth-child(2) {
+            background: linear-gradient(135deg, #0f3460 0%, #16213e 100%);
+        }
+
+        .scripture-section:nth-child(3) {
+            background: linear-gradient(135deg, #16213e 0%, #1a1a2e 100%);
+        } */
+
+        .scripture-text {
+            max-width: 1200px;
+            width: 100%;
+            padding: 1.5rem;
         }
     </style>
 
