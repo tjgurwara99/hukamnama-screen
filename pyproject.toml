@@ -7,7 +7,9 @@ requires-python = ">=3.12"
 dependencies = [
     "flask>=3.1.2",
     "flask-login>=0.6.3",
+    "flask-socketio>=5.6.0",
     "flask-sqlalchemy>=3.1.1",
+    "gevent>=25.9.1",
     "requests>=2.32.5",
     "uwsgi>=2.0.31",
     "wheel>=0.45.1",

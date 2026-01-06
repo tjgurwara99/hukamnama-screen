@@ -6,6 +6,7 @@ from .models import CurrentHukamnama
 from . import db
 from datetime import datetime
 import requests
+from hukamnama.events import socketio
 
 main = Blueprint("main", __name__)
 
@@ -58,4 +59,5 @@ def shabad_post(shabad_id):
     hukamnama.shabad_id = shabad_id
     db.session.add(hukamnama)
     db.session.commit()
+    socketio.emit("new_hukamnama", {"shabad_id": shabad_id})
     return redirect(f"/shabads/{shabad_id}")

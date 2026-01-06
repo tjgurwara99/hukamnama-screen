@@ -2,9 +2,9 @@
 This is the uwsgi entry point for the Hukamnama application.
 """
 
-from hukamnama import create_app
+from hukamnama import create_app, socketio
 
 app = create_app()
 
 if __name__ == "__main__":
-    app.run()
+    socketio.run(app)

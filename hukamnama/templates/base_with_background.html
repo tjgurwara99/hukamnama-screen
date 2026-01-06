@@ -70,7 +70,7 @@
             min-width: 33.33%;
             height: 100%;
             padding-bottom: 3rem;
-            padding:2rem;
+            padding: 2rem;
         }
 
         .scripture-text {
@@ -97,26 +97,30 @@
             z-index: -1;
         }
 
-        
-        {% block extra_styles %}
-        {% endblock %}
+        .text-colour {
+            color: #47478c
+        }
     </style>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/textfit/2.4.0/textFit.min.js" integrity="sha512-vLs5rAqfvmv/IpN7JustROkGAvjK/L+vgVDFe7KpdtLztqF8mZDfleK2MZj/xuOrWjma0pW+lPCMcBbPKJVC7g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/textfit/2.4.0/textFit.min.js"
+        integrity="sha512-vLs5rAqfvmv/IpN7JustROkGAvjK/L+vgVDFe7KpdtLztqF8mZDfleK2MZj/xuOrWjma0pW+lPCMcBbPKJVC7g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdn.socket.io/4.6.0/socket.io.min.js"
+        integrity="sha384-c79GN5VsunZvi+Q/WObgk2in0CbZsHnjEqvFxC5DxHn9lTfNce2WW6h2pH6u/kF+"
+        crossorigin="anonymous"></script>
 </head>
 
 <body class="background-image py-6">
     <section class="is-fullheight has-text-primary">
-            <div class="has-text-centered is-fluid">
-                {% block content %}
-                {% endblock %}
-            </div>
+        <div class="has-text-centered is-fluid">
+            {% block content %}
+            {% endblock %}
+        </div>
     </section>
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             // Apply textFit to all scripture text elements
             var elements = document.querySelectorAll('.scripture-text');
-            elements.forEach(function(element) {
+            elements.forEach(function (element) {
                 textFit(element, {
                     alignVert: true,
                     alignHoriz: true,
@@ -127,6 +131,12 @@
                     minFontSize: 16
                 });
             });
+        });
+
+        const socket = io();
+        socket.on("new_hukamnama", (data) => {
+            console.log("New hukamnama received:", data);
+            window.location.reload();
         });
     </script>
 </body>
