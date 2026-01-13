@@ -5,7 +5,7 @@
 {% block content %}
 <div class="scripture-container">
   <div class="scripture-section">
-    <div class="scripture-text title is-4 text-colour">
+    <div class="scripture-text title text-colour">
       {%- for verse in data["verses"] -%}
       {% if verse["translation"]["pu"]["bdb"]["unicode"] %}
       <div>{{ verse["translation"]["pu"]["bdb"]["unicode"] }}</div>
@@ -14,14 +14,14 @@
     </div>
   </div>
   <div class="scripture-section">
-    <div class="scripture-text title is-4 text-colour">
+    <div class="scripture-text title text-colour">
       {%- for verse in data["verses"] -%}
       <div>{{ verse["verse"]["unicode"] }}</div>
       {%- endfor -%}
     </div>
   </div>
   <div class="scripture-section">
-    <div class="scripture-text title is-4 text-colour">
+    <div class="scripture-text title text-colour">
       {%- for verse in data["verses"] -%}
       {% if verse["translation"]["en"]["bdb"] %}
       <div>{{ verse["translation"]["en"]["bdb"] }}</div>
