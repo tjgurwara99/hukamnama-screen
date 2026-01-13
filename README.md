@@ -29,7 +29,7 @@ Hukamnama Screen enables you to:
 - **Package Management**: UV (fast Python package manager)
 
 > [!NOTE]
-> This project uses the Socket.IO gevent server instead of uWSGI due to compatibility issues with OpenSSL headers on macOS.
+> This project uses the Socket.IO gevent server instead of uWSGI due to compatibility issues with OpenSSL headers on macOS as I develop in macos it was a choice of convenience.
 
 ## Installation
 
@@ -68,6 +68,11 @@ Hukamnama Screen enables you to:
 
    - Navigate to `http://127.0.0.1:8000/signup`
    - Register a new user account
+
+  > [!WARNING]
+  > This could use some security strengthening if you are thinking of hosting this on your server and having a screen/raspberry pi/SBC read
+  > that as a webpage as anyone can currently sign up and update the indexed Hukamnama. I left it as is for my usecase but I recognise that
+  > it could be a problem.
 
 5. **Set your first Hukamnama**
 
@@ -205,10 +210,6 @@ The application uses a client-server architecture:
 ## Contributing
 
 Contributions are welcome! Please feel free to submit a Pull Request.
-
-## License
-
-[Add your license information here]
 
 ## Support
 
