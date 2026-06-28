@@ -107,7 +107,34 @@ For production deployments, especially when accessing remotely, set up Nginx as 
 2. Enable SSL/TLS for secure remote access
 3. Set up firewall rules as needed
 
-#### 3. Kiosk Mode Display
+#### 3. Gurmukhi Fonts (Required)
+
+The Hukamnama is rendered using **Unicode Gurmukhi** (code points in the `U+0A00–U+0A7F` block). The legacy fonts bundled in `hukamnama/static/fonts/` (AnmolLipiSG, GurbaniAkharHeavyTrue) are ASCII-mapped fonts and **cannot** render Unicode Gurmukhi, so the display falls back to whatever Gurmukhi font the OS provides.
+
+A fresh Raspberry Pi OS install usually has **no Unicode Gurmukhi font with OpenType shaping**. This causes two symptoms:
+
+- Some characters do not show up at all (no glyph in the fallback font).
+- Subjoined consonants and combining marks (subscripts/superscripts) appear **twice** — the base form and the half/subjoined form both render because the fallback font lacks the OpenType (GSUB/GPOS) shaping rules needed to combine them.
+
+Install a shaping-capable Unicode Gurmukhi font (Noto Sans Gurmukhi) on each display device:
+
+```bash
+sudo apt-get update
+sudo apt-get install -y fonts-noto-core fonts-noto-extra
+# Rebuild the font cache so Chromium can find the new fonts
+sudo fc-cache -f -v
+```
+
+Verify a Gurmukhi font is now available:
+
+```bash
+fc-list | grep -i gurmukhi
+# Expected: .../NotoSansGurmukhi-Regular.ttf: Noto Sans Gurmukhi:style=Regular
+```
+
+Reload the page (or reboot) after installing. With a proper Unicode Gurmukhi font present, Chromium's font fallback will pick it up and render the text correctly.
+
+#### 4. Kiosk Mode Display
 
 Configure the Raspberry Pi to automatically show the Hukamnama screen on startup:
 
