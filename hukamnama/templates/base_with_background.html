@@ -49,6 +49,26 @@
             src: url("/static/fonts/AnmolLipiSG.ttf") format("truetype");
         }
 
+        @font-face {
+            font-display: swap;
+            font-family: "Noto Sans Gurmukhi";
+            font-weight: 400;
+            src: url("/static/fonts/NotoSansGurmukhi-Regular.ttf") format("truetype");
+        }
+
+        @font-face {
+            font-display: swap;
+            font-family: "Noto Sans Gurmukhi";
+            font-weight: 700;
+            src: url("/static/fonts/NotoSansGurmukhi-Bold.ttf") format("truetype");
+        }
+
+        /* Unicode Gurmukhi scripture text (self-hosted, includes OpenType shaping) */
+        .scripture-text,
+        .gurmukhi {
+            font-family: "Noto Sans Gurmukhi", sans-serif;
+        }
+
         #search.gurbani-font {
             font-family: anmol_lipi !important;
         }

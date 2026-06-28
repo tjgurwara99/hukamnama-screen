@@ -4,11 +4,11 @@
 
 {% block content %}
 {%- for verse in data["verses"] -%}
-<p class="title has-text-primary">
+<p class="title has-text-primary gurmukhi">
     {{ verse["verse"]["unicode"] }}
 </p>
 {% if verse["translation"]["pu"]["bdb"]["unicode"] %}
-<p class="subtitle has-text-primary m-2">
+<p class="subtitle has-text-primary m-2 gurmukhi">
     {{ verse["translation"]["pu"]["bdb"]["unicode"] }}
 </p>
 <p class="subtitle has-text-primary m-2">
